@@ -11,4 +11,4 @@ rand = "*"
 
 [[bin]]
 name = "multithread_cli"
-path = "src/studies/multithread_cli.rs"
+path = "src/studies/multithread_cli/multithread_cli.rs"
