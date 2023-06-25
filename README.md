@@ -18,4 +18,7 @@ Generates a PDF with skia-safe (Rust bindings for the C++ Skia Lib), drawing tex
 
     cargo run --bin pdfgen
 
-Follow [Rust-Skia](https://github.com/rust-skia/rust-skia)'s instructions on what do you need installed in order for skia-safe to build Skia (C++) in the background.
+Follow [Rust-Skia](https://github.com/rust-skia/rust-skia)'s instructions on what do you need installed in order for skia-safe to build Skia (C++) in the background. On Ubuntu, this is what worked for me:
+
+    sudo apt install build-essential clang libfontconfig-dev
+
