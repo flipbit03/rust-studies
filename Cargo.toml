@@ -8,7 +8,12 @@ edition = "2021"
 [dependencies]
 regex = "*"
 rand = "*"
+skia-safe = { version = "0.63.0", features = ["textlayout"] }
 
 [[bin]]
 name = "multithread_cli"
-path = "src/studies/multithread_cli/multithread_cli.rs"
+path = "src/studies/st01_multithread_cli/multithread_cli.rs"
+
+[[bin]]
+name = "pdfgen"
+path = "src/studies/st02_pdfgen/pdfgen.rs"

@@ -24,12 +24,14 @@ fn command_runner(rx: Receiver<CliCommand>) -> u64 {
             CliCommand::Minus(left, right) => (left, "-", right, left - right),
             CliCommand::Multiply(left, right) => (left, "*", right, left * right),
             CliCommand::Divide(left, right) => (left, "/", right, left / right),
-
         };
 
         // Print the result.
         thread::sleep(Duration::from_millis(1000));
-        println!("JOB{job_id}: Result: {} {} {} = {}", left, signal, right, result);
+        println!(
+            "JOB{job_id}: Result: {} {} {} = {}",
+            left, signal, right, result
+        );
     }
 }
 
@@ -65,7 +67,6 @@ fn main() {
 
             // Send command over channel to command_runner thread.
             tx.send(cmd).unwrap();
-
         } else {
             println!("Invalid input!");
         }
