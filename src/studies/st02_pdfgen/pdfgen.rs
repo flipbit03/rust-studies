@@ -8,7 +8,7 @@ use skia_safe::{
     colors,
     pdf::new_document,
     utils::text_utils::{draw_str, Align},
-    Color, Data, Font, Paint, PaintStyle, PathEffect, Typeface,
+    Data, Font, Paint, PaintStyle, PathEffect, Typeface,
 };
 
 use crate::{
@@ -79,8 +79,7 @@ fn main() {
     let mut first_page = doc.begin_page(a4_page_size, None);
     let mut first_page_canvas = first_page.canvas();
 
-    let pink = Color::from_argb(255, 255, 182, 193);
-    first_page_canvas.clear(pink);
+    first_page_canvas.clear(colors::WHITE);
 
     let mut rect_paint = Paint::new(colors::BLACK, None);
     rect_paint.set_style(PaintStyle::Stroke);
@@ -118,14 +117,7 @@ fn main() {
     }
 
     let doc_with_page = first_page.end_page();
-
-    let mut page2 = doc_with_page.begin_page(a4_page_size, None);
-    let canvas2 = page2.canvas();
-    canvas2.clear(colors::RED);
-
-    let closed_doc = page2.end_page();
-
-    let final_doc = closed_doc.close();
+    let final_doc = doc_with_page.close();
 
     let pdf_bytes = final_doc.as_bytes();
 
